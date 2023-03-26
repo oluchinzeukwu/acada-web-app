@@ -17,7 +17,7 @@
     }
     stage("3. Code Quality"){
       steps{
-        sh "echo start of code quality"
+        sh "echo start of a code quality"
         sh "mvn sonar:sonar"
       }
     }
