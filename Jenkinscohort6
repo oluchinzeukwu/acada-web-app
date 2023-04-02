@@ -6,7 +6,7 @@
 stages{
   stage('1.GitClone'){
   steps{
-    sh "echo Github cloning"
+    sh "echo Github is cloning"
     git 'https://github.com/team16flight/web-app.git'
   }
 }
