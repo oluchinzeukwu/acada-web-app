@@ -1,12 +1,12 @@
 pipeline{
   agent any
   tools {
-    maven 'maven3.9'
+    maven 'maven3.8.8'
   }
   stages {
     stage('Git Clone'){
       steps{
-        git 'https://github.com/kifediniru393/web-app.git'
+        git 'https://github.com/oluchinzeukwu/acada-web-app.git'
       }
     }
     stage('Build containers'){
@@ -39,7 +39,7 @@ pipeline{
     stage('Tomcat'){
       steps {
       echo 'Pushing to Tomcat'
-       deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://172.31.93.206:8080/')], contextPath: null, war: 'target/*war'
+       deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://172.31.80.79:8080/')], contextPath: null, war: 'target/*war'
         echo 'Done'
     }
    }
