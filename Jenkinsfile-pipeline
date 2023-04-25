@@ -19,7 +19,7 @@ stage('2.Build Container'){
 stage('3.Initializing Container'){
   steps{
     sh "echo waiting for all containers to be up"
-    sh "sleep 70"                                                                                "mvn sonar:sonar"
+    sh "sleep 70"                                                                               
   }
   }
 stage('4.Execute maven package'){
