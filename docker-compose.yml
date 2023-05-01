@@ -10,7 +10,6 @@ services:
     ports: 
       - "9000:9000"
     container_name: sonarqube
-
   web:
     build: .
     ports:
