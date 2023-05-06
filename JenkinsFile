@@ -9,12 +9,7 @@ pipeline{
         git 'https://github.com/oluchinzeukwu/acada-web-app.git'
       }
     }
-    stage('Build containers'){
-      steps{
-        sh 'docker-compose up -d'
-      }
-    }
-    stage('Initializing container'){
+       stage('Initializing container'){
       steps{
         sh 'echo waiting for all container services to be up'
         sh 'sleep 60'
@@ -26,14 +21,14 @@ pipeline{
         sh 'mvn package'
       }
     }
-        stage('Deploy to nexus'){
-      steps{
-        sh 'mvn deploy'  
-      }
-    }
-    stage('Test artifact with sonar'){
+      stage('Test artifact with sonar'){
       steps{
         sh 'mvn sonar:sonar'
+      }
+    }
+      stage('Deploy to Nexus'){
+      steps{
+        sh 'mvn deploy'
       }
     }
     stage('Tomcat'){
